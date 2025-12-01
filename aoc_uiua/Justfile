@@ -1,0 +1,3 @@
+run day part input:
+    uiua run ./{{day}}/{{part}}/main.ua {{input}}
+

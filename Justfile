@@ -10,11 +10,14 @@ set windows-shell := ["powershell.exe", "-NoLogo", "-Command"]
 #   just run rust -- arg1 arg2 "arg with space"
 #   just run zig -- --flag 123
 run language *args:
-    {{ if language == "rust" { "just _rust " + args } else if language == "zig" { "just _zig " + args } else if language == "haskell" { "just _haskell " + args } else if language == "fsharp" { "just _fsharp " + args } else if language == "elixir" { "just _elixir " + args } else if language == "kotlin" { "just _kotlin " + args } else if language == "deno" { "just _deno " + args } else if language == "swift" { "just _swift " + args } else { "just _unknown " + language } }}
+    {{ if language == "rust" { "just _rust " + args } else if language == "zig" { "just _zig " + args } else if language == "haskell" { "just _haskell " + args } else if language == "fsharp" { "just _fsharp " + args } else if language == "elixir" { "just _elixir " + args } else if language == "kotlin" { "just _kotlin " + args } else if language == "deno" { "just _deno " + args } else if language == "swift" { "just _swift " + args } else if language == "uiua" { "just _uiua " + args } else { "just _unknown " + language } }}
 
 # Language-specific runners (private recipes)
 _rust *args:
     cd {{project_prefix}}rust && cargo run -- {{args}}
+
+_uiua *args:
+    cd {{project_prefix}}uiua && just run {{args}}
 
 _zig *args:
     cd {{project_prefix}}zig && zig build run -- {{args}}
