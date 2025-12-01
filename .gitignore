@@ -3,3 +3,8 @@
 */build-out
 */cache-out
 .inputs/**
+*/target
+*/node_modules
+*/build-out
+*/cache-out
+*/.inputs
