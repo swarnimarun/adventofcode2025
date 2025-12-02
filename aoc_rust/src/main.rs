@@ -1,4 +1,5 @@
 mod day1;
+mod day2;
 
 fn main() {
     let mut args = std::env::args().skip(1);
@@ -7,7 +8,8 @@ fn main() {
     let input = std::fs::read_to_string(args.next().unwrap()).unwrap();
     let days = [
         [day1::part1, day1::part2],
-        // [day2::part1, day2::part2],
+        [day2::part1, day2::part2],
+        // [day3::part1, day3::part2],
     ];
     let day = match day
         .trim()
@@ -22,7 +24,7 @@ fn main() {
             let d = days.get(i - 1).expect(&format!(
                 "failed to find the given {i} day's implementation"
             ));
-            print!("Rust -<>- Day 1 ");
+            print!("Rust -<>- Day {i} ");
             d
         }
         _ => {
