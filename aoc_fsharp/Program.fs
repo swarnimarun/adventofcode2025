@@ -17,7 +17,17 @@ module Day1 =
                 |> Array.length
             printfn "Result for the part is %d" res
     module Part2 =
-        let run (input: string) = ()
+        let run (input: string) =
+            let mutable acc = 50
+            let res =
+                input.Trim().Split [|'\n'|]
+                |> Array.map parseRotation
+                |> Array.filter (fun (x) ->
+                    acc <- (((acc + x) % 100) + 100) % 100
+                    acc = 0
+                )
+                |> Array.length
+            printfn "Result for the part is %d" res
 
 exception StringException of string
 
