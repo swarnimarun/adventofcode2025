@@ -19,16 +19,14 @@ pub fn run(input: String) {
                     .skip(11 - i)
                     .max_by(|(_, b), (_, d)| b.cmp(d))
                     .unwrap();
-                values.push(max);
+                values.push(*max);
                 start_index = mi + 1;
             }
-            values
-                .into_iter()
-                .fold(String::new(), |mut acc, b| {
-                    acc.push(*b as char);
-                    acc
-                })
-                .parse::<usize>()
+            String::from_utf8(values)
+                .as_ref()
+                .map(String::as_str)
+                .map(str::parse::<usize>)
+                .unwrap()
                 .unwrap()
         })
         .sum::<usize>();
