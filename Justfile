@@ -14,7 +14,7 @@ run language *args:
 
 # Language-specific runners (private recipes)
 _rust *args:
-    cd {{project_prefix}}rust && cargo run -- {{args}}
+    cd {{project_prefix}}rust && cargo run -r -- {{args}}
 
 _uiua *args:
     cd {{project_prefix}}uiua && just run {{args}}
