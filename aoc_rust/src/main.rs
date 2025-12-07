@@ -4,6 +4,7 @@ mod day3;
 mod day4;
 mod day5;
 mod day6;
+mod day7;
 
 fn main() {
     let mut args = std::env::args().skip(1);
@@ -17,7 +18,8 @@ fn main() {
         [day4::part1, day4::part2],
         [day5::part1, day5::part2],
         [day6::part1, day6::part2],
-        // [day7::part1, day7::part2],
+        [day7::part1, day7::part2],
+        // [day8::part1, day8::part2],
     ];
     let day = match day
         .trim()
